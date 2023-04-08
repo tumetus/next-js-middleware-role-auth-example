@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Providers from "./providers";
 
 export const metadata = {
@@ -9,7 +10,16 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <Providers>{children}</Providers>
+        <Providers>
+          <nav style={{ padding: "5px 0" }}>
+            <Link href="/">Frontpage</Link>
+            {` `}
+            <Link href="/admin-dashboard">Admin dashboard</Link>
+            {` `}
+            <Link href="/profile-page">Profile page</Link>
+          </nav>
+          {children}
+        </Providers>
       </body>
     </html>
   );
