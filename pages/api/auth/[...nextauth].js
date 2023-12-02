@@ -9,6 +9,12 @@ export const authOptions = {
       clientSecret: process.env.GITHUB_SECRET,
     }),
   ],
+  callbacks: {
+      async  jwt({token}) {
+        token.role = 'admin';
+        return token;
+  },
+    },
 };
 
 export default NextAuth(authOptions);
